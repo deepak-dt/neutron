@@ -143,7 +143,7 @@ EXTENDED_ATTRIBUTES_2_0 = {
         PROFILE: {'allow_post': True, 'allow_put': True,
                   'default': constants.ATTR_NOT_SPECIFIED,
                   'enforce_policy': True,
-                  'validate': {'type:dict_or_none':
+                  'validate': {'type:dict_subset_or_none':
                                    binding_profile_constraints},
                   'is_visible': True},
     }
