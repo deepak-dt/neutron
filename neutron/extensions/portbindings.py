@@ -104,6 +104,23 @@ VNIC_DIRECT_PHYSICAL = 'direct-physical'
 VNIC_TYPES = [VNIC_NORMAL, VNIC_DIRECT, VNIC_MACVTAP, VNIC_BAREMETAL,
               VNIC_DIRECT_PHYSICAL]
 
+PCI_FORMAT_REGEX = r"^[0-9a-fA-F]{4}:[0-9a-fA-F]{2}:[0-9a-fA-F]{2}.[0-9a-fA-F]$"
+PCI_VENDOR_INFO_REGEX = r"^[0-9a-fA-F]{4}:[0-9a-fA-F]{4}$"
+COMMA_SEPARATED_LIST_REGEX = r"^([0-9]+(-[0-9]+)?)(,([0-9]+(-[0-9]+)?))*$"
+
+binding_profile_constraints = {'vf_vlan_filter':
+                                   {'type:regex_or_none':
+                                        COMMA_SEPARATED_LIST_REGEX,
+                                    'required': False},
+                               'vf_public_vlans':
+                                   {'type:regex_or_none':
+                                        COMMA_SEPARATED_LIST_REGEX,
+                                    'required': False},
+                               'vf_pci_slot':
+                                   {'type:regex_or_none':
+                                        PCI_FORMAT_REGEX,
+                                    'required': False}}
+
 EXTENDED_ATTRIBUTES_2_0 = {
     'ports': {
         VIF_TYPE: {'allow_post': False, 'allow_put': False,
@@ -126,7 +143,8 @@ EXTENDED_ATTRIBUTES_2_0 = {
         PROFILE: {'allow_post': True, 'allow_put': True,
                   'default': constants.ATTR_NOT_SPECIFIED,
                   'enforce_policy': True,
-                  'validate': {'type:dict_or_none': None},
+                  'validate': {'type:dict_or_none':
+                                   binding_profile_constraints},
                   'is_visible': True},
     }
 }
