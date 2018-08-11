@@ -116,9 +116,29 @@ binding_profile_constraints = {'vf_vlan_filter':
                                    {'type:regex_or_none':
                                         COMMA_SEPARATED_LIST_REGEX,
                                     'required': False},
+                               'vf_private_vlans':
+                                   {'type:regex_or_none':
+                                        COMMA_SEPARATED_LIST_REGEX,
+                                    'required': False},
+                               'vf_guest_vlans':
+                                   {'type:regex_or_none':
+                                        COMMA_SEPARATED_LIST_REGEX,
+                                    'required': False},
+                               'vf_vlan_mirror':
+                                   {'type:regex_or_none':
+                                        COMMA_SEPARATED_LIST_REGEX,
+                                    'required': False},
                                'vf_pci_slot':
                                    {'type:regex_or_none':
                                         PCI_FORMAT_REGEX,
+                                    'required': False},
+                               'pf_pci_slot':
+                                   {'type:regex_or_none':
+                                        PCI_FORMAT_REGEX,
+                                    'required': False},
+                               'pf_pci_vendor_info':
+                                   {'type:regex_or_none':
+                                        PCI_VENDOR_INFO_REGEX,
                                     'required': False}}
 
 EXTENDED_ATTRIBUTES_2_0 = {
