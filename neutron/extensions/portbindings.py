@@ -108,37 +108,25 @@ PCI_FORMAT_REGEX = r"^[0-9a-fA-F]{4}:[0-9a-fA-F]{2}:[0-9a-fA-F]{2}.[0-9a-fA-F]$"
 PCI_VENDOR_INFO_REGEX = r"^[0-9a-fA-F]{4}:[0-9a-fA-F]{4}$"
 COMMA_SEPARATED_LIST_REGEX = r"^([0-9]+(-[0-9]+)?)(,([0-9]+(-[0-9]+)?))*$"
 
-binding_profile_constraints = {'vf_vlan_filter':
+binding_profile_constraints = {'vlan_filter':
                                    {'type:regex_or_none':
                                         COMMA_SEPARATED_LIST_REGEX,
                                     'required': False},
-                               'vf_public_vlans':
+                               'public_vlans':
                                    {'type:regex_or_none':
                                         COMMA_SEPARATED_LIST_REGEX,
                                     'required': False},
-                               'vf_private_vlans':
+                               'private_vlans':
                                    {'type:regex_or_none':
                                         COMMA_SEPARATED_LIST_REGEX,
                                     'required': False},
-                               'vf_guest_vlans':
+                               'guest_vlans':
                                    {'type:regex_or_none':
                                         COMMA_SEPARATED_LIST_REGEX,
                                     'required': False},
-                               'vf_vlan_mirror':
+                               'vlan_mirror':
                                    {'type:regex_or_none':
                                         COMMA_SEPARATED_LIST_REGEX,
-                                    'required': False},
-                               'vf_pci_slot':
-                                   {'type:regex_or_none':
-                                        PCI_FORMAT_REGEX,
-                                    'required': False},
-                               'pf_pci_slot':
-                                   {'type:regex_or_none':
-                                        PCI_FORMAT_REGEX,
-                                    'required': False},
-                               'pf_pci_vendor_info':
-                                   {'type:regex_or_none':
-                                        PCI_VENDOR_INFO_REGEX,
                                     'required': False}}
 
 EXTENDED_ATTRIBUTES_2_0 = {
